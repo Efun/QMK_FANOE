@@ -51,3 +51,6 @@
 #define RGBLIGHT_SAT_STEP 8
 #define RGBLIGHT_VAL_STEP 8
 
+//set tapping toggle for TT() to 3 taps instead of 5
+#define TAPPING_TOGGLE 3
+
