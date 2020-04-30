@@ -33,6 +33,22 @@ void action_function_user(keyrecord_t *record, uint8_t id, uint8_t opt) {
 }
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+  static bool caps_toggle;
+
+  switch (keycode) {
+  case KC_CAPS:
+    if (!record->event.pressed) { caps_toggle = !caps_toggle; }
+    if (caps_toggle) {
+      rgblight_setrgb(0xFF, 0x00, 0x00);
+      rgblight_mode(RGBLIGHT_MODE_STATIC_LIGHT);
+    } else {
+      rgblight_mode(RGBLIGHT_MODE_RAINBOW_SWIRL);
+    }
+    break;
+  default:
+    break;
+  }
+
   return process_record_keymap(keycode, record);
 }
 
